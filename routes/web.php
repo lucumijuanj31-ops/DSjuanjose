@@ -16,3 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+use App\Http\Controllers\VistaController;
+
+Route::get('/vista', [VistaController::class, 'index']);
+
+Route::get('/reservas', function () {
+    return view('reservas');
+});

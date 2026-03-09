@@ -1,26 +1,23 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\VistaController;
 
 /*
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
+| Aquí se registran las rutas web de la aplicación
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Página principal
+Route::get('/', [VistaController::class, 'index']);
 
-use App\Http\Controllers\VistaController;
-
-Route::get('/vista', [VistaController::class, 'index']);
-
+// Ruta para ver la página de reservas
 Route::get('/reservas', function () {
     return view('reservas');
 });
+
+// Ruta para otra vista si la necesitas
+Route::get('/vista', [VistaController::class, 'vista']);
